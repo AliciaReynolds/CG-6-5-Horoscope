@@ -19,9 +19,23 @@ namespace CG_6_5_Horoscope
             Console.WriteLine($"You were born on a {Day}.");
             Console.WriteLine();
 
+            //This code is converting the user's inputted birthday to a variable and today's date
+            //as a variable
+            DateTime B1 = Birthday;
+            DateTime B2 = DateTime.Today;
+
+            /*This line of code takes the two variable above and subtracts them and converts it to 
+            an interger so that way you can find the difference between the days, then divide
+            by the number of days in the year to come up with the years the user has been alive.
+            Then add a year to get what it would be for the following year*/
+            var BdayCurrent = (int)((B2 - B1).TotalDays);
+            var BdayNext = (BdayCurrent / 365) + 1;
+           // Console.WriteLine(BdayNext); <-- this added to make sure it was working right
+
             //This tells the user what day of the week their birthday will fall on next year
             //by using the variable. And then prints it on the screen.
-            string DayNext = Birthday.AddYears(1).DayOfWeek.ToString();
+            string DayNext = Birthday.AddYears(BdayNext).DayOfWeek.ToString();
+            
             Console.WriteLine($"Your birthday will be on a {DayNext} next year.");
             Console.WriteLine();
 
